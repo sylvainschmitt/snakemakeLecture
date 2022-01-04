@@ -7,9 +7,10 @@ rule fastqc:
         "results/logs/fastqc_{library}.log"
     benchmark:
         "results/benchmarks/fastqc_{library}.benchmark.txt"
+    singularity: 
+        "docker://biocontainers/fastqc:v0.11.9_cv8"
     threads: 4
     resources:
         mem_mb=16000
     shell:
-        "module load bioinfo/FastQC_v0.11.7 ; "
         "fastqc -t {threads} -q {input} --outdir=results/{wildcards.library}/"

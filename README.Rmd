@@ -15,8 +15,6 @@ library(kableExtra)
 if(knitr:::is_html_output()) options(knitr.table.format = "html") 
 if(knitr:::is_latex_output()) options(knitr.table.format = "latex") 
 library(tidyverse)
-library(vcfR)
-library(Biostrings)
 theme_set(bayesplot::theme_default())
 opts_chunk$set(echo = F, message = F, warning = F, fig.height = 6, fig.width = 8,
                cache = F, cache.lazy = F)
@@ -60,12 +58,27 @@ cd ${GOPATH}/src/github.com/sylabs/singularity && \
   cd ./builddir && \
   make && \
   sudo make install
-# detect Mutations
-git clone git@github.com:sylvainschmitt/detectMutations.git
-cd detectMutations
+# snakemake Lecture
+git clone git@github.com:sylvainschmitt/snakemakeLecture.git
+cd snakemakeLecture
 ```
 
 # Data
+
+Run `get_data.sh` in the `data` directory.
+
+```{bash, eval=F, echo=T}
+git clone git@github.com:sylvainschmitt/generateMutations.git
+cd generateMutations/data
+sh get_data.sh
+cd ..
+snakemake --use-singularity --cores 4
+mv results/reference/ ../
+mv results/reads/ ../
+mv results/mutations/ ../
+cd ..
+rm -rf generateMutations
+```
 
 # Usage
 
@@ -88,111 +101,146 @@ snakemake --dag | dot -Tsvg > dag/dag.svg # dag
 
 # Workflow
 
-<!-- ## Reference -->
+## Reference
 
-<!-- *Copy and index reference.* -->
+*Copy and index reference.*
 
-<!-- ### [cp_reference](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/cp_reference.smk) -->
+### [cp_reference](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/cp_reference.smk)
 
-<!--   - Tools: `cp` -->
+  - Tools: `cp`
 
-<!-- ### [bwa_index](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/bwa_index.smk) -->
+### [bwa_index](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/bwa_index.smk)
 
-<!--   - Tools: [`BWA index`](http://bio-bwa.sourceforge.net/bwa.shtml) -->
-<!--   - Singularity: -->
-<!--     oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest -->
+  - Tools: [`BWA index`](http://bio-bwa.sourceforge.net/bwa.shtml)
+  - Singularity:
+    oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest
 
-<!-- ## Reads -->
+## Reads
 
-<!-- *Trim and quality check reads.* -->
+*Trim and quality check reads.*
 
-<!-- ### [trimmomatic](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/trimmomatic.smk) -->
+### [trimmomatic](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/trimmomatic.smk)
 
-<!-- * Tools: [`Trimmomatic`](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/trimmomatic/trimmomatic:latest -->
+* Tools: [`Trimmomatic`](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/trimmomatic/trimmomatic:latest
 
-<!-- ### [fastqc](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/fastqc.smk) -->
+### [fastqc](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/fastqc.smk)
 
-<!-- * Tools: [`fastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/) -->
-<!-- * Singularity: docker://biocontainers/fastqc:v0.11.9_cv8 -->
+* Tools: [`fastQC`](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
+* Singularity: docker://biocontainers/fastqc:v0.11.9_cv8
 
-<!-- ### [multiqc](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/multiqc.smk) -->
+## Alignments
 
-<!-- * Tools: [`MultiQC`](https://multiqc.info/) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/multiqc/multiqc:latest -->
+*Align reads against reference, mark duplicated, and report alignment quality.*
 
-<!-- ## Alignments -->
+### [bwa_mem](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/bwa_mem.smk)
 
-<!-- *Align reads against reference, mark duplicated, and report alignment quality.* -->
+* Tools: [`BWA mem`](http://bio-bwa.sourceforge.net/bwa.shtml)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest
 
-<!-- ### [bwa_mem](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/bwa_mem.smk) -->
+### [samtools_view](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_view.smk)
 
-<!-- * Tools: [`BWA mem`](http://bio-bwa.sourceforge.net/bwa.shtml) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest -->
+* Tools: [`Samtools view`](http://www.htslib.org/doc/samtools-view.html)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
 
-<!-- ### [samtools_view](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/samtools_view.smk) -->
+### [samtools_sort](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_sort.smk)
 
-<!-- * Tools: [`Samtools view`](http://www.htslib.org/doc/samtools-view.html) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest -->
+* Tools: [`Samtools sort`](http://www.htslib.org/doc/samtools-sort.html)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
 
-<!-- ### [samtools_sort](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/samtools_sort.smk) -->
+### [samtools_index](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_index.smk)
 
-<!-- * Tools: [`Samtools sort`](http://www.htslib.org/doc/samtools-sort.html) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest -->
+* Tools: [`Samtools index`](http://www.htslib.org/doc/samtools-index.html)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
 
-<!-- ### [samtools_index](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/samtools_index.smk) -->
+### [gatk_markduplicates](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/gatk_markduplicates.smk)
 
-<!-- * Tools: [`Samtools index`](http://www.htslib.org/doc/samtools-index.html) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest -->
+* Tools: [`gatk MarkDuplicates`](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-)
+* Singularity: docker://broadinstitute/gatk
 
-<!-- ### [gatk_markduplicates](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/gatk_markduplicates.smk) -->
+### [samtools_view_md](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_view_md.smk)
 
-<!-- * Tools: [`gatk MarkDuplicates`](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-) -->
-<!-- * Singularity: docker://broadinstitute/gatk -->
+* Tools: [`Samtools view`](http://www.htslib.org/doc/samtools-view.html)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
 
-<!-- ### [samtools_view_md](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/samtools_view_md.smk) -->
+### [samtools_index_md](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_index_md.smk)
 
-<!-- * Tools: [`Samtools view`](http://www.htslib.org/doc/samtools-view.html) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest -->
+* Tools: [`Samtools index`](http://www.htslib.org/doc/samtools-index.html)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
 
-<!-- ### [samtools_index_md](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/samtools_index_md.smk) -->
+### [samtools_stats](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_stats.smk)
 
-<!-- * Tools: [`Samtools index`](http://www.htslib.org/doc/samtools-index.html) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest -->
+* Tools: [`Samtools stats`](http://www.htslib.org/doc/samtools-stats.html)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
 
-<!-- ### [samtools_stats](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/samtools_stats.smk) -->
+### [mosdepth](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/mosdepth.smk)
 
-<!-- * Tools: [`Samtools stats`](http://www.htslib.org/doc/samtools-stats.html) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest -->
+* Tools: [`mosdepth`](https://github.com/brentp/mosdepth)
+* Singularity: docker://quay.io/biocontainers/mosdepth:0.2.4--he527e40_0
 
-<!-- ### [mosdepth](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/mosdepth.smk) -->
+## Mutations
 
-<!-- * Tools: [`mosdepth`](https://github.com/brentp/mosdepth) -->
-<!-- * Singularity: docker://quay.io/biocontainers/mosdepth:0.2.4--he527e40_0 -->
+*Detect mutations.*
 
-<!-- ## Mutations -->
+### [strelka2](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/strelka2.smk)
 
-<!-- *Detect mutations.* -->
+* Tools: [`Strelka2`](https://github.com/Illumina/strelka)
+* Singularity: docker://quay.io/wtsicgp/strelka2-manta
 
-<!-- ### [strelka2](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/strelka2.smk) -->
+### [bedtools_subtract](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/bedtools_subtract.smk)
 
-<!-- * Tools: [`Strelka2`](https://github.com/Illumina/strelka) -->
-<!-- * Singularity: docker://quay.io/wtsicgp/strelka2-manta -->
+* Tools: [`bedtools subtract`](https://bedtools.readthedocs.io/en/latest/content/tools/subtract.html)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/bedtools/bedtools:latest
 
-<!-- ### [bedtools_subtract](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/bedtools_subtract.smk) -->
+### [strelka2tsv](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/strelka2tsv.smk)
 
-<!-- * Tools: [`bedtools subtract`](https://bedtools.readthedocs.io/en/latest/content/tools/subtract.html) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/bedtools/bedtools:latest -->
+* Script: [`strelka2tsv.R`](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/scripts/strelka2tsv.R)
+* Singularity: https://github.com/sylvainschmitt/singularity-r-bioinfo/releases/download/0.0.3/sylvainschmitt-singularity-r-bioinfo.latest.sif
 
-<!-- ### [bedtools_intersect](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/bedtools_intersect.smk) -->
+## Quality check
 
-<!-- * Tools: [`bedtools intersect`](https://bedtools.readthedocs.io/en/latest/content/tools/intersect.html) -->
-<!-- * Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/bedtools/bedtools:latest -->
+*Report all quality checks together.*
 
-<!-- ### [strelka2tsv](https://github.com/sylvainschmitt/detectMutations/blob/angela/rules/strelka2tsv.smk) -->
+### [multiqc](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/multiqc.smk)
 
-<!-- * Script: [`strelka2tsv.R`](https://github.com/sylvainschmitt/detectMutations/blob/angela/scripts/strelka2tsv.R) -->
-<!-- * Singularity: to be added, currently uses local install -->
+* Tools: [`MultiQC`](https://multiqc.info/)
+* Singularity: oras://registry.forgemia.inra.fr/gafl/singularity/multiqc/multiqc:latest
+
+## Plot and check results
+
+```{r data}
+mutations <- lapply(list.files("results/mutations/", full.names = T), read_tsv) %>% 
+  bind_rows()
+genome <- read_tsv("results/reference/Qrob_Chr01_7k.fa.fai", 
+         col_names = c("CHROM", "length", "bytesindex", "basesperline", "bytesperline")) %>% 
+  dplyr::select(CHROM, length) %>% 
+  mutate(start = 0, stop = length/10^3)
+```
+
+```{r mutations}
+ggplot(mutations, aes(x = CHROM, xend = CHROM)) +
+  geom_segment(aes(y = start, yend = stop), size = 3, col = "grey", data = genome) +
+  geom_point(aes(y = POS/10^3), col = "red") +
+  coord_flip() +
+  ylab("Position (kb)") +
+  theme(axis.line.y = element_blank(), axis.title.y = element_blank(), 
+        axis.ticks.y = element_blank()) +
+  facet_wrap(~ tumor, nrow = 2)
+```
+
+```{r}
+read_tsv("data/mutations/mutations.tsv") %>% 
+  mutate(true = 1) %>% 
+  full_join(
+    select(mutations, CHROM, POS, REF, ALT, tumor) %>% 
+      reshape2::dcast(CHROM + POS + REF + ALT ~ tumor) %>% 
+      mutate_at(c("leaf1", "leaf2"), funs(ifelse(is.na(.), 0, 1)))
+  ) %>% 
+  mutate(true = ifelse(is.na(true), 0, 1)) %>% 
+  rowwise() %>% 
+  filter(sum(true, leaf1, leaf2) < 3) %>% 
+  kable()
+```
 
 
 

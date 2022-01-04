@@ -4,11 +4,9 @@
 ressources: "ressources.genologin.yaml"
 
 # data
-refdir: "../data/angela/genome"
-reference: "Dgu_HS1_HYBRID_SCAFFOLD"
-hz: ""
-# libdir: "../data/angela/reads/"
-libdir: "../data/angela/dummyreads/"
-base: "T1"
-tumor: ["T2", "T3", "T4", "AS1", "AS2", "AS3", "AL1", "AL2", "AL3", "BS1", "BS2", "BS3", "BL1", "BL2", "BL3", "CS1", "CS2", "CS3", "CL1", "CL2", "CL3", "DS1", "DS2", "DS3", "DL1", "DL2", "DL3", "ES1", "ES2", "ES3", "EL1", "EL2", "EL3"]
-# tumor: "AL1"
+refdir: "data/reference"
+reference: "Qrob_Chr01_7k"
+hz: "Qrob_Chr01_7k_snps.vcf"
+libdir: "data/reads/"
+base: "trunk"
+tumor: ["leaf1", "leaf2"]

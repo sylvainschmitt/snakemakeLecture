@@ -6,7 +6,7 @@ rule strelka2:
         "results/alns/{tumor}.md.cram.crai",
         expand("results/alns/{base}.md.cram.crai", base=config["base"])
     output:
-        expand("results/mutations/{tumor}_vs_{base}.raw.vcf", base=config["base"], allow_missing=True)
+        temp(expand("results/mutations/{tumor}_vs_{base}.raw.vcf", base=config["base"], allow_missing=True))
     log:
         "results/logs/strelka2_{tumor}.log"
     benchmark:

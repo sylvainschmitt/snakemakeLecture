@@ -1,12 +1,11 @@
 #!/bin/bash
 #SBATCH --time=96:00:00
-#SBATCH -J angela
-#SBATCH -o angela.%N.%j.out
-#SBATCH -e angela.%N.%j.err
+#SBATCH -J smk
+#SBATCH -o smk.%N.%j.out
+#SBATCH -e smk.%N.%j.err
 #SBATCH --mem=1G
 #SBATCH --cpus-per-task=1
 #SBATCH --mail-type=ALL
-####SBATCH -p unlimitq
 
 # Environment
 module purge
@@ -20,7 +19,7 @@ CORES=100
 mkdir -p snake_subjob_log
 
 # Workflow
-snakemake -s Snakefile --use-singularity --singularity-args "\-\-bind /work/project/treemutation \-\-containall" -j $CORES --cluster-config $CONFIG --cluster "$COMMAND" --keep-going
+snakemake -s Snakefile --use-singularity --singularity-args "\-\-containall" -j $CORES --cluster-config $CONFIG --cluster "$COMMAND" --keep-going
 
 ## Session informations
 echo '########################################'

@@ -17,15 +17,3 @@ dag/dag.svg
 .cache
 .java
 .oracle_jre_usage
-# data
-*.fastq.gz
-*.fa
-*.fa.fai
-*.bed
-*.sam
-*.tsv
-data/trunk
-data/reads
-data/bordeaux
-data/dag
-data
