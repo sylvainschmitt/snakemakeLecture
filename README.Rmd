@@ -132,7 +132,9 @@ snakemake --dag | dot -Tsvg > dag/dag.svg # dag
 
 ## Alignments
 
-*Align reads against reference, mark duplicated, and report alignment quality.*
+*Align reads against reference, and report alignment quality.*
+
+**Beware, the step where we mark duplicates has been removed for demonstration, but should be included in a working workflow.** 
 
 ### [bwa_mem](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/bwa_mem.smk)
 
