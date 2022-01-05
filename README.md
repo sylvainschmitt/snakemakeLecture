@@ -85,6 +85,7 @@ rm -rf generateMutations
 snakemake -np -j 3 --resources mem_mb=10000 # dry run
 snakemake --dag | dot -Tsvg > dag/dag.svg # dag
 snakemake --use-singularity -j 3 --resources mem_mb=10000 # run
+snakemake --report # report
 ```
 
 ## HPC
@@ -155,26 +156,6 @@ quality.*
     oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
 
 ### [samtools\_index](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_index.smk)
-
-  - Tools: [`Samtools
-    index`](http://www.htslib.org/doc/samtools-index.html)
-  - Singularity:
-    oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
-
-### [gatk\_markduplicates](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/gatk_markduplicates.smk)
-
-  - Tools: [`gatk
-    MarkDuplicates`](https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard-)
-  - Singularity: docker://broadinstitute/gatk
-
-### [samtools\_view\_md](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_view_md.smk)
-
-  - Tools: [`Samtools
-    view`](http://www.htslib.org/doc/samtools-view.html)
-  - Singularity:
-    oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest
-
-### [samtools\_index\_md](https://github.com/sylvainschmitt/snakemakeLecture/blob/main/rules/samtools_index_md.smk)
 
   - Tools: [`Samtools
     index`](http://www.htslib.org/doc/samtools-index.html)

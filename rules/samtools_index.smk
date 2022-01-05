@@ -1,8 +1,8 @@
 rule samtools_index:
     input:
-        "results/alns/{library}.sorted.cram"
+        "results/alns/{library}.cram"
     output:
-        temp("results/alns/{library}.sorted.cram.crai")
+        "results/alns/{library}.cram.crai"
     log:
         "results/logs/samtools_index_{library}.log"
     benchmark:

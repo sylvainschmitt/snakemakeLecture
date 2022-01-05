@@ -3,7 +3,7 @@ rule samtools_view:
         "results/alns/{library}.sam",
         expand("results/reference/{reference}.fa", reference=config["reference"])
     output:
-        temp("results/alns/{library}.raw.cram")
+        temp("results/alns/{library}_raw.cram")
     log:
         "results/logs/samtools_view_{library}.log"
     benchmark:

@@ -1,8 +1,8 @@
 rule samtools_stats:
     input:
-        "results/alns/{library}.md.cram"
+        "results/alns/{library}.cram"
     output:
-        "results/alns/{library}.md.cram.stats"
+        "results/alns/{library}.cram.stats"
     log:
         "results/logs/samtools_stats_{library}.log"
     benchmark:

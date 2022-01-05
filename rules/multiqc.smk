@@ -3,7 +3,7 @@ rule multiqc:
         expand("results/{library}/{library}_{strand}_fastqc.{ext}", library=libraries,
                 strand=["1", "2"], ext=["html", "zip"]),
         expand("results/{library}/trim_out.log", library=libraries),
-        expand("results/alns/{library}.md.cram.stats", library=libraries),
+        expand("results/alns/{library}.cram.stats", library=libraries),
         expand("results/alns/{library}.mosdepth.global.dist.txt", library=libraries)
     output:
         "results/multiqc_report.html"
@@ -17,6 +17,6 @@ rule multiqc:
         "multiqc "
         "results/*/*_fastqc.zip "
         "results/*/trim_out.log "
-        "results/alns/*.md.cram.stats "
+        "results/alns/*.cram.stats "
         "results/alns/*.mosdepth.global.dist.txt "
         "-o results/"

@@ -1,10 +1,10 @@
 rule strelka2:
     input:
         expand("results/reference/{reference}.fa", reference=config["reference"]),
-        "results/alns/{tumor}.md.cram",
-        expand("results/alns/{base}.md.cram", base=config["base"]),
-        "results/alns/{tumor}.md.cram.crai",
-        expand("results/alns/{base}.md.cram.crai", base=config["base"])
+        "results/alns/{tumor}.cram",
+        expand("results/alns/{base}.cram", base=config["base"]),
+        "results/alns/{tumor}.cram.crai",
+        expand("results/alns/{base}.cram.crai", base=config["base"])
     output:
         temp(expand("results/mutations/{tumor}_vs_{base}.raw.vcf", base=config["base"], allow_missing=True))
     log:

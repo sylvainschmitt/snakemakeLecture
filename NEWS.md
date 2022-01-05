@@ -1,3 +1,6 @@
+# snakemakeLecture 0.1.9003
+* rm MarkDuplicates for a lighter workflow
+
 # snakemakeLecture 0.1.9002
 * full pipeline
 
