@@ -1,3 +1,6 @@
+# snakemakeLecture 0.1.9005
+* singularity full & setup
+
 # snakemakeLecture 0.1.9004
 * snakemake official tutorial with full pipeline
 

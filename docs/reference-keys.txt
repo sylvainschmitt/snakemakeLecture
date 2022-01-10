@@ -15,5 +15,6 @@ logging
 temporary-and-protected-files
 additional-features
 singularity
-part
-conclusion
+use-a-container
+build-a-container
+host-a-container

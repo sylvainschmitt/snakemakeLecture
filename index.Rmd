@@ -10,23 +10,6 @@ colorlinks: yes
 description: "Singularity & Snakemake workflow lecture at ECOFOG."
 ---
 
-```{r setup, include=FALSE}
-rm(list = ls()) ; invisible(gc()) ; set.seed(42)
-library(knitr)
-library(tidyverse)
-theme_set(bayesplot::theme_default())
-knitr::opts_chunk$set(
-  eval = F,
-	echo = F,
-	fig.height = 6,
-	fig.width = 8,
-	message = FALSE,
-	warning = FALSE,
-	cache = TRUE,
-	cache.lazy = F
-)
-```
-
 `r if (knitr:::is_html_output()) '# Preface {-}'`
 
 `r if (knitr:::is_html_output()) 'This lecture is adapted from the [official *Snakemake* tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html).'`

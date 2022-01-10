@@ -187,7 +187,9 @@ ressources: "ressources.genologin.yaml"
 Finally, the submission fo the workflow can be defined in a separate bash file, see for instance [`job.sh`](snakemake/job.sh) that you can submit as:
 
 ```{bash, eval=F}
-sbatch job.sh
+module load bioinfo/snakemake-5.25.0 # for test on node
+snakemake -np # to test validity with a dry-run
+sbatch job.sh # to run the workflow
 ```
 
 ## Constraining wildcards {-}
