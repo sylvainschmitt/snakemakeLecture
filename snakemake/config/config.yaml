@@ -1,5 +1,1 @@
-samples:
-    A: data/samples/A.fastq
-    B: data/samples/B.fastq
-    
-prior_mutation_rate: 0.001
+# to fill

@@ -1,3 +1,6 @@
+# snakemakeLecture 0.1.9006
+* empty main pipeline for lecture
+
 # snakemakeLecture 0.1.9005
 * singularity full & setup
 
