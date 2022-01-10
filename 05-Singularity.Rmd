@@ -1,5 +1,103 @@
 # Singularity
 
-## Part
+*Singularity* is a free, cross-platform and open-source computer program that performs **operating-system-level virtualization** also known as **containerization**.
+One of the main uses of *Singularity* is to bring **containers and reproducibility to scientific computing and the high-performance computing** (HPC) world.
+The need for reproducibility requires the ability to use containers to **move applications from system to system**.
+Using *Singularity* containers, developers can work in reproducible environments of their choosing and design, and these complete environments can easily be copied and executed on other platforms.
 
-## Summary {-}
+## Use a container
+
+You can pull containers from singularity or docker hub, e.g.:
+
+```{bash, eval=F}
+singularity pull https://github.com/sylvainschmitt/singularity-r-bioinfo/releases/download/0.0.3/sylvainschmitt-singularity-r-bioinfo.latest.sif
+```
+
+And you can use the container as an executable or with `singularity exec` or in shell mode with `singularity shell` (see `singularity --help`):
+
+```{bash, eval=F}
+mv sylvainschmitt-singularity-r-bioinfo.latest.sif rbioinfo.sif
+singularity shell rbioinfo.sif 
+R
+4+4
+library(vcfR)
+```
+
+Finally, as seen previously you can use containers in *Snakemake* workflows with the `singularity` directive:
+
+```{bash, eval=F}
+    singularity: 
+        "https://github.com/sylvainschmitt/singularity-template/releases/download/0.0.4/sylvainschmitt-singularity-template.latest.sif"
+```
+
+
+And run it using the `--use-singularity` flag:
+
+```{bash, eval=F}
+snakemake --use-singularity
+```
+
+## Build a container
+
+Singularity containers are defined using a recipe written in yaml forked from another recipe defined on a hub, e.g. `tpall/singularity-r:4.0.3` from `shub`. 
+The tow information are given in the header of the `Singularity` file:
+
+```{bash, eval=F}
+BootStrap: shub
+From: tpall/singularity-r:4.0.3
+```
+
+Then the main body of the recipe define diverse categories (labels, help, ...) and especially the content of the recipe with `%post`. 
+For instance for a recipe including `tidyverse`:
+
+```{bash, eval=F}
+%post
+  apt-get update -qq \
+    && apt-get install -y \
+    --no-install-recommends \
+    libudunits2-dev \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libgdal-dev \
+    libgsl-dev \
+    libnode-dev \
+    && Rscript -e "install.packages('tidyverse', dependencies = c('Depends', 'Imports', 'LinkingTo'))" \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+```
+
+Which give as a whole the following recipe:
+
+```{bash, eval=F}
+BootStrap: shub
+From: tpall/singularity-r:4.0.3
+
+%labels
+  Author Sylvain Schmitt
+
+%help
+  This will run tidyverse and Biostrings
+
+%post
+  apt-get update -qq \
+    && apt-get install -y \
+    --no-install-recommends \
+    libudunits2-dev \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libgdal-dev \
+    libgsl-dev \
+    libnode-dev \
+    && Rscript -e "install.packages('tidyverse', dependencies = c('Depends', 'Imports', 'LinkingTo'))" \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+```
+
+That you build manually with sudoer rights using `singularity build`:
+
+```{bash, eval=F}
+sudo singularity build tidyverse.sif Singularity
+```
+
+## Host a container
+
+You can host containers on GitHub thank to GitHub actions that will build it online and host it as a release.
+Have a look to [singularity-deploy](https://github.com/singularityhub/singularity-deploy) and [my template repository](https://github.com/sylvainschmitt/singularity-template).

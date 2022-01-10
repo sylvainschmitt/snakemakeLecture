@@ -54,6 +54,70 @@
 <script async defer src="https://hypothes.is/embed.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="html/style.css" type="text/css" />
 </head>
@@ -73,6 +137,10 @@
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="setup.html"><a href="setup.html"><i class="fa fa-check"></i>Setup</a><ul>
+<li class="chapter" data-level="" data-path="setup.html"><a href="setup.html#requirements"><i class="fa fa-check"></i>Requirements</a></li>
+<li class="chapter" data-level="" data-path="setup.html"><a href="setup.html#plus"><i class="fa fa-check"></i>Plus</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html"><i class="fa fa-check"></i><b>1</b> Basics: An example workflow</a><ul>
 <li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#background"><i class="fa fa-check"></i>Background</a></li>
 <li class="chapter" data-level="1.1" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#mapping-reads"><i class="fa fa-check"></i><b>1.1</b> Mapping reads</a></li>
@@ -121,10 +189,10 @@
 <li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#constraining-wildcards"><i class="fa fa-check"></i>Constraining wildcards</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="singularity.html"><a href="singularity.html"><i class="fa fa-check"></i><b>4</b> Singularity</a><ul>
-<li class="chapter" data-level="4.1" data-path="singularity.html"><a href="singularity.html#part"><i class="fa fa-check"></i><b>4.1</b> Part</a></li>
-<li class="chapter" data-level="" data-path="singularity.html"><a href="singularity.html#summary-2"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="4.1" data-path="singularity.html"><a href="singularity.html#use-a-container"><i class="fa fa-check"></i><b>4.1</b> Use a container</a></li>
+<li class="chapter" data-level="4.2" data-path="singularity.html"><a href="singularity.html#build-a-container"><i class="fa fa-check"></i><b>4.2</b> Build a container</a></li>
+<li class="chapter" data-level="4.3" data-path="singularity.html"><a href="singularity.html#host-a-container"><i class="fa fa-check"></i><b>4.3</b> Host a container</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/sylvainschmitt/snakemakeLecture" target="blank">Source</a></li>
 
@@ -156,12 +224,24 @@ This book is in <b><a href="open.html#open">Open Review</a></b>. I want your fee
 <p>For some tools, it is advisable to use more than one thread in order to speed up the computation.
 <em>Snakemake</em> can be made aware of the threads a rule needs with the <code>threads</code> directive.
 In our example workflow, it makes sense to use multiple threads for the rule <code>bwa_mem</code>:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="advanced-decorating-the-example-workflow.html#cb26-1"></a><span class="ex">rule</span> bwa_mem:</span>
+<span id="cb26-2"><a href="advanced-decorating-the-example-workflow.html#cb26-2"></a>    <span class="ex">input</span>:</span>
+<span id="cb26-3"><a href="advanced-decorating-the-example-workflow.html#cb26-3"></a>        <span class="st">&quot;data/genome.fa&quot;</span>,</span>
+<span id="cb26-4"><a href="advanced-decorating-the-example-workflow.html#cb26-4"></a>        <span class="st">&quot;data/samples/{sample}.fastq&quot;</span></span>
+<span id="cb26-5"><a href="advanced-decorating-the-example-workflow.html#cb26-5"></a>    <span class="ex">output</span>:</span>
+<span id="cb26-6"><a href="advanced-decorating-the-example-workflow.html#cb26-6"></a>        <span class="st">&quot;results/mapped_reads/{sample}.sam&quot;</span></span>
+<span id="cb26-7"><a href="advanced-decorating-the-example-workflow.html#cb26-7"></a>    <span class="ex">threads</span>: 3</span>
+<span id="cb26-8"><a href="advanced-decorating-the-example-workflow.html#cb26-8"></a>    <span class="ex">singularity</span>:</span>
+<span id="cb26-9"><a href="advanced-decorating-the-example-workflow.html#cb26-9"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest&quot;</span></span>
+<span id="cb26-10"><a href="advanced-decorating-the-example-workflow.html#cb26-10"></a>    <span class="ex">shell</span>:</span>
+<span id="cb26-11"><a href="advanced-decorating-the-example-workflow.html#cb26-11"></a>        <span class="st">&quot;bwa mem -t {threads} {input} &gt; {output}&quot;</span></span></code></pre></div>
 <p>The number of threads can be propagated to the shell command with the familiar braces notation (i.e. <code>{threads}</code>).
 If no <code>threads</code> directive is given, a rule is assumed to need 1 thread.</p>
 <p>When a workflow is executed, the number of threads the jobs need is considered by the <em>Snakemake</em> scheduler.
 In particular, the scheduler ensures that the sum of the threads of all jobs running at the same time does not exceed a given number of available CPU cores.
 This number is given with the <code>--cores</code> command line argument, which is mandatory for <code>snakemake</code> calls that actually run the workflow.
 For example</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb27-1"><a href="advanced-decorating-the-example-workflow.html#cb27-1"></a><span class="ex">snakemake</span> --cores 4 --use-singularity</span></code></pre></div>
 <blockquote>
 <p><strong><em>NOTE:</em></strong> Apart from the very common thread resource, <em>Snakemake</em> provides a <code>resources</code> directive that can be used to specify arbitrary resources, e.g., memory usage or auxiliary computing devices like GPUs. Similar to threads, these can be considered by the scheduler when an available amount of that resource is given with the command line argument <code>--resources</code>.</p>
 </blockquote>
@@ -182,10 +262,25 @@ However, often you want your workflow to be customizable, so that it can easily 
 For this purpose, <em>Snakemake</em> provides a config file mechanism.
 Config files can be written in JSON or YAML, and are used with the <code>configfile</code> directive.
 In our example workflow, we add the line</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="advanced-decorating-the-example-workflow.html#cb28-1"></a><span class="ex">configfile</span>: <span class="st">&quot;config/config.yaml&quot;</span></span></code></pre></div>
 <p>to the top of the Snakefile.
 <em>Snakemake</em> will load the config file and store its contents into a globally available dictionary named <code>config</code>.
 In our case, it makes sense to specify the samples in <code>config/config.yaml</code> as</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="advanced-decorating-the-example-workflow.html#cb29-1"></a><span class="ex">samples</span>:</span>
+<span id="cb29-2"><a href="advanced-decorating-the-example-workflow.html#cb29-2"></a>    <span class="ex">A</span>: data/samples/A.fastq</span>
+<span id="cb29-3"><a href="advanced-decorating-the-example-workflow.html#cb29-3"></a>    <span class="ex">B</span>: data/samples/B.fastq</span></code></pre></div>
 <p>Now, we can remove the statement defining <code>SAMPLES</code> from the Snakefile and change the rule <code>samtools_mpileup</code> to</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="advanced-decorating-the-example-workflow.html#cb30-1"></a><span class="ex">rule</span> samtools_mpileup:</span>
+<span id="cb30-2"><a href="advanced-decorating-the-example-workflow.html#cb30-2"></a>    <span class="ex">input</span>:</span>
+<span id="cb30-3"><a href="advanced-decorating-the-example-workflow.html#cb30-3"></a>        <span class="va">fa=</span><span class="st">&quot;data/genome.fa&quot;</span>,</span>
+<span id="cb30-4"><a href="advanced-decorating-the-example-workflow.html#cb30-4"></a>        <span class="va">bam=</span>expand<span class="va">(</span><span class="st">&quot;results/sorted_reads/{sample}.bam&quot;</span>, sample<span class="va">=</span>config<span class="va">[</span><span class="st">&quot;samples&quot;</span><span class="va">])</span>,</span>
+<span id="cb30-5"><a href="advanced-decorating-the-example-workflow.html#cb30-5"></a>        <span class="va">bai=</span>expand<span class="va">(</span><span class="st">&quot;results/sorted_reads/{sample}.bam.bai&quot;</span>, sample<span class="va">=</span>config<span class="va">[</span><span class="st">&quot;samples&quot;</span><span class="va">])</span></span>
+<span id="cb30-6"><a href="advanced-decorating-the-example-workflow.html#cb30-6"></a>    <span class="ex">output</span>:</span>
+<span id="cb30-7"><a href="advanced-decorating-the-example-workflow.html#cb30-7"></a>        <span class="st">&quot;results/calls/all.pileup&quot;</span></span>
+<span id="cb30-8"><a href="advanced-decorating-the-example-workflow.html#cb30-8"></a>    <span class="ex">singularity</span>: </span>
+<span id="cb30-9"><a href="advanced-decorating-the-example-workflow.html#cb30-9"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest&quot;</span></span>
+<span id="cb30-10"><a href="advanced-decorating-the-example-workflow.html#cb30-10"></a>    <span class="ex">shell</span>:</span>
+<span id="cb30-11"><a href="advanced-decorating-the-example-workflow.html#cb30-11"></a>        <span class="st">&quot;samtools mpileup -g -f {input.fa} {input.bam} &gt; {output}&quot;</span></span></code></pre></div>
 </div>
 <div id="input-functions-others" class="section level2">
 <h2><span class="header-section-number">2.3</span> Input functions &amp; others</h2>
@@ -202,6 +297,20 @@ In this phase, we don’t know about jobs, wildcard values and rule dependencies
 Hence, we cannot determine the FASTQ paths for rule <code>bwa_mem</code> from the config file in this phase, because we don’t even know which jobs will be generated from that rule.
 Instead, we need to defer the determination of input files to the DAG phase.
 This can be achieved by specifying an input function instead of a string as inside of the input directive. For the rule <code>bwa_mem</code> this works as follows:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="advanced-decorating-the-example-workflow.html#cb31-1"></a><span class="ex">def</span> get_bwa_mem_input_fastqs(wildcards)<span class="bu">:</span></span>
+<span id="cb31-2"><a href="advanced-decorating-the-example-workflow.html#cb31-2"></a>    <span class="bu">return</span> config[<span class="st">&quot;samples&quot;</span>][wildcards.sample]</span>
+<span id="cb31-3"><a href="advanced-decorating-the-example-workflow.html#cb31-3"></a></span>
+<span id="cb31-4"><a href="advanced-decorating-the-example-workflow.html#cb31-4"></a><span class="ex">rule</span> bwa_mem:</span>
+<span id="cb31-5"><a href="advanced-decorating-the-example-workflow.html#cb31-5"></a>    <span class="ex">input</span>:</span>
+<span id="cb31-6"><a href="advanced-decorating-the-example-workflow.html#cb31-6"></a>        <span class="st">&quot;data/genome.fa&quot;</span>,</span>
+<span id="cb31-7"><a href="advanced-decorating-the-example-workflow.html#cb31-7"></a>        <span class="ex">get_bwa_mem_input_fastqs</span></span>
+<span id="cb31-8"><a href="advanced-decorating-the-example-workflow.html#cb31-8"></a>    <span class="ex">output</span>:</span>
+<span id="cb31-9"><a href="advanced-decorating-the-example-workflow.html#cb31-9"></a>        <span class="st">&quot;results/mapped_reads/{sample}.sam&quot;</span></span>
+<span id="cb31-10"><a href="advanced-decorating-the-example-workflow.html#cb31-10"></a>    <span class="ex">threads</span>: 3</span>
+<span id="cb31-11"><a href="advanced-decorating-the-example-workflow.html#cb31-11"></a>    <span class="ex">singularity</span>:</span>
+<span id="cb31-12"><a href="advanced-decorating-the-example-workflow.html#cb31-12"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest&quot;</span></span>
+<span id="cb31-13"><a href="advanced-decorating-the-example-workflow.html#cb31-13"></a>    <span class="ex">shell</span>:</span>
+<span id="cb31-14"><a href="advanced-decorating-the-example-workflow.html#cb31-14"></a>        <span class="st">&quot;bwa mem -t {threads} {input} &gt; {output}&quot;</span></span></code></pre></div>
 <p>Any normal function would work as well.
 Input functions take as single argument a <code>wildcards</code> object, that allows to access the wildcards values via attributes (here <code>wildcards.sample</code>).
 They have to return a string or a list of strings, that are interpreted as paths to input files (here, we return the path that is stored for the sample in the config file).
@@ -217,16 +326,34 @@ Add that sample to the config file and see how <em>Snakemake</em> wants to recom
 <div id="folder" class="section level4 unnumbered">
 <h4>Folder</h4>
 <p>We can also use a <strong>folder</strong> and list files corresponding to pattern, for instance with FASTQ files here:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="advanced-decorating-the-example-workflow.html#cb32-1"></a><span class="ex">samples</span>, = glob_wildcards(<span class="st">&quot;data/samples/&quot;</span> + <span class="st">&quot;/{sample}.fastq&quot;</span>)</span></code></pre></div>
 <p>Later used as :</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="advanced-decorating-the-example-workflow.html#cb33-1"></a><span class="ex">expand</span>(<span class="st">&quot;results/sorted_reads/{sample}.bam&quot;</span>, sample=samples)</span></code></pre></div>
 </div>
 <div id="table" class="section level4 unnumbered">
 <h4>Table</h4>
 <p>We can also use a <strong>table</strong> and read defined files using the <em>Python</em> library <code>panda</code>, for instance with FASTQ files here:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="advanced-decorating-the-example-workflow.html#cb34-1"></a><span class="ex">import</span> pandas as pd</span>
+<span id="cb34-2"><a href="advanced-decorating-the-example-workflow.html#cb34-2"></a></span>
+<span id="cb34-3"><a href="advanced-decorating-the-example-workflow.html#cb34-3"></a><span class="ex">sample_file</span> = pd.read_table(<span class="st">&quot;samples.txt&quot;</span>, usecols=[<span class="st">&quot;sample&quot;</span>, <span class="st">&quot;file&quot;</span>])<span class="ex">.set_index</span>(<span class="st">&quot;file&quot;</span>)</span>
+<span id="cb34-4"><a href="advanced-decorating-the-example-workflow.html#cb34-4"></a><span class="ex">samples</span> = sample_file.index.values.tolist()</span></code></pre></div>
 <p>Later used as :</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="advanced-decorating-the-example-workflow.html#cb35-1"></a><span class="ex">expand</span>(<span class="st">&quot;results/sorted_reads/{sample}.bam&quot;</span>, sample=samples)</span></code></pre></div>
 </div>
 <div id="online" class="section level4 unnumbered">
 <h4>Online</h4>
 <p>We can also use a web address, a NCBI request… For instance:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="advanced-decorating-the-example-workflow.html#cb36-1"></a><span class="ex">import</span> os</span>
+<span id="cb36-2"><a href="advanced-decorating-the-example-workflow.html#cb36-2"></a><span class="ex">from</span> snakemake.remote.HTTP import RemoteProvider as HTTPRemoteProvider</span>
+<span id="cb36-3"><a href="advanced-decorating-the-example-workflow.html#cb36-3"></a></span>
+<span id="cb36-4"><a href="advanced-decorating-the-example-workflow.html#cb36-4"></a><span class="ex">HTTP</span> = HTTPRemoteProvider()</span>
+<span id="cb36-5"><a href="advanced-decorating-the-example-workflow.html#cb36-5"></a></span>
+<span id="cb36-6"><a href="advanced-decorating-the-example-workflow.html#cb36-6"></a><span class="ex">rule</span> all:</span>
+<span id="cb36-7"><a href="advanced-decorating-the-example-workflow.html#cb36-7"></a>    <span class="ex">input</span>:</span>
+<span id="cb36-8"><a href="advanced-decorating-the-example-workflow.html#cb36-8"></a>        <span class="ex">HTTP.remote</span>(<span class="st">&quot;www.example.com/path/to/document.pdf&quot;</span>, keep_local=True)</span>
+<span id="cb36-9"><a href="advanced-decorating-the-example-workflow.html#cb36-9"></a>    <span class="ex">run</span>:</span>
+<span id="cb36-10"><a href="advanced-decorating-the-example-workflow.html#cb36-10"></a>        <span class="ex">outputName</span> = os.path.basename(input[0])</span>
+<span id="cb36-11"><a href="advanced-decorating-the-example-workflow.html#cb36-11"></a>        <span class="ex">shell</span>(<span class="st">&quot;mv {input} {outputName}&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -237,6 +364,19 @@ In particular, it can happen that additional parameters need to be set depending
 For this, Snakemake allows to define arbitrary parameters for rules with the <code>params</code> directive.
 In our workflow, it is reasonable to annotate aligned reads with so-called read groups, that contain metadata like the sample name.
 We modify the rule <code>bwa_mem</code> accordingly:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="advanced-decorating-the-example-workflow.html#cb37-1"></a><span class="ex">rule</span> bwa_mem:</span>
+<span id="cb37-2"><a href="advanced-decorating-the-example-workflow.html#cb37-2"></a>    <span class="ex">input</span>:</span>
+<span id="cb37-3"><a href="advanced-decorating-the-example-workflow.html#cb37-3"></a>        <span class="st">&quot;data/genome.fa&quot;</span>,</span>
+<span id="cb37-4"><a href="advanced-decorating-the-example-workflow.html#cb37-4"></a>        <span class="ex">get_bwa_mem_input_fastqs</span></span>
+<span id="cb37-5"><a href="advanced-decorating-the-example-workflow.html#cb37-5"></a>    <span class="ex">output</span>:</span>
+<span id="cb37-6"><a href="advanced-decorating-the-example-workflow.html#cb37-6"></a>        <span class="st">&quot;results/mapped_reads/{sample}.sam&quot;</span></span>
+<span id="cb37-7"><a href="advanced-decorating-the-example-workflow.html#cb37-7"></a>    <span class="ex">params</span>:</span>
+<span id="cb37-8"><a href="advanced-decorating-the-example-workflow.html#cb37-8"></a>        <span class="va">rg=</span>r<span class="st">&quot;@RG\tID:{sample}\tSM:{sample}&quot;</span></span>
+<span id="cb37-9"><a href="advanced-decorating-the-example-workflow.html#cb37-9"></a>    <span class="ex">threads</span>: 3</span>
+<span id="cb37-10"><a href="advanced-decorating-the-example-workflow.html#cb37-10"></a>    <span class="ex">singularity</span>:</span>
+<span id="cb37-11"><a href="advanced-decorating-the-example-workflow.html#cb37-11"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest&quot;</span></span>
+<span id="cb37-12"><a href="advanced-decorating-the-example-workflow.html#cb37-12"></a>    <span class="ex">shell</span>:</span>
+<span id="cb37-13"><a href="advanced-decorating-the-example-workflow.html#cb37-13"></a>        <span class="st">&quot;bwa mem -R &#39;{params.rg}&#39; -t {threads} {input} &gt; {output}&quot;</span></span></code></pre></div>
 <blockquote>
 <p><strong><em>NOTE:</em></strong> The <code>params</code> directive can also take functions like in Step 3 to defer initialization to the DAG phase. In contrast to input functions, these can optionally take additional arguments <code>input</code>, <code>output</code>, <code>threads</code>, and <code>resources</code>.</p>
 </blockquote>
@@ -255,6 +395,21 @@ Consider making this flag configurable via adding a new key to the config file a
 For this purpose, <em>Snakemake</em> allows to specify log files for rules.
 Log files are defined via the <code>log</code> directive and handled similarly to output files, but they are not subject of rule matching and are not cleaned up when a job fails.
 We modify our rule <code>bwa_mem</code> as follows:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb38-1"><a href="advanced-decorating-the-example-workflow.html#cb38-1"></a><span class="ex">rule</span> bwa_mem:</span>
+<span id="cb38-2"><a href="advanced-decorating-the-example-workflow.html#cb38-2"></a>    <span class="ex">input</span>:</span>
+<span id="cb38-3"><a href="advanced-decorating-the-example-workflow.html#cb38-3"></a>        <span class="st">&quot;data/genome.fa&quot;</span>,</span>
+<span id="cb38-4"><a href="advanced-decorating-the-example-workflow.html#cb38-4"></a>        <span class="ex">get_bwa_mem_input_fastqs</span></span>
+<span id="cb38-5"><a href="advanced-decorating-the-example-workflow.html#cb38-5"></a>    <span class="ex">output</span>:</span>
+<span id="cb38-6"><a href="advanced-decorating-the-example-workflow.html#cb38-6"></a>        <span class="st">&quot;results/mapped_reads/{sample}.sam&quot;</span></span>
+<span id="cb38-7"><a href="advanced-decorating-the-example-workflow.html#cb38-7"></a>    <span class="ex">log</span>:</span>
+<span id="cb38-8"><a href="advanced-decorating-the-example-workflow.html#cb38-8"></a>        <span class="st">&quot;results/logs/bwa_mem_{sample}.log&quot;</span></span>
+<span id="cb38-9"><a href="advanced-decorating-the-example-workflow.html#cb38-9"></a>    <span class="ex">params</span>:</span>
+<span id="cb38-10"><a href="advanced-decorating-the-example-workflow.html#cb38-10"></a>        <span class="va">rg=</span>r<span class="st">&quot;@RG\tID:{sample}\tSM:{sample}&quot;</span></span>
+<span id="cb38-11"><a href="advanced-decorating-the-example-workflow.html#cb38-11"></a>    <span class="ex">threads</span>: 3</span>
+<span id="cb38-12"><a href="advanced-decorating-the-example-workflow.html#cb38-12"></a>    <span class="ex">singularity</span>:</span>
+<span id="cb38-13"><a href="advanced-decorating-the-example-workflow.html#cb38-13"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest&quot;</span></span>
+<span id="cb38-14"><a href="advanced-decorating-the-example-workflow.html#cb38-14"></a>    <span class="ex">shell</span>:</span>
+<span id="cb38-15"><a href="advanced-decorating-the-example-workflow.html#cb38-15"></a>        <span class="st">&quot;bwa mem -R &#39;{params.rg}&#39; -t {threads} {input} &gt; {output} 2&gt; {log}&quot;</span></span></code></pre></div>
 <blockquote>
 <p><strong><em>NOTE:</em></strong> It is best practice to store all log files in a subdirectory <code>logs/</code>, prefixed by the rule or tool name.</p>
 </blockquote>
@@ -280,9 +435,35 @@ Hence, the resulting BAM files need a lot of disk space and their creation takes
 To save disk space, you can mark output files as temporary.
 <em>Snakemake</em> will delete the marked files for you, once all the consuming jobs (that need it as input) have been executed.
 We use this mechanism for the output file of the rule <code>bwa_mem</code>:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="advanced-decorating-the-example-workflow.html#cb39-1"></a><span class="ex">rule</span> bwa_mem:</span>
+<span id="cb39-2"><a href="advanced-decorating-the-example-workflow.html#cb39-2"></a>    <span class="ex">input</span>:</span>
+<span id="cb39-3"><a href="advanced-decorating-the-example-workflow.html#cb39-3"></a>        <span class="st">&quot;data/genome.fa&quot;</span>,</span>
+<span id="cb39-4"><a href="advanced-decorating-the-example-workflow.html#cb39-4"></a>        <span class="ex">get_bwa_mem_input_fastqs</span></span>
+<span id="cb39-5"><a href="advanced-decorating-the-example-workflow.html#cb39-5"></a>    <span class="ex">output</span>:</span>
+<span id="cb39-6"><a href="advanced-decorating-the-example-workflow.html#cb39-6"></a>        <span class="ex">temp</span>(<span class="st">&quot;results/mapped_reads/{sample}.sam&quot;</span>)</span>
+<span id="cb39-7"><a href="advanced-decorating-the-example-workflow.html#cb39-7"></a>    <span class="ex">log</span>:</span>
+<span id="cb39-8"><a href="advanced-decorating-the-example-workflow.html#cb39-8"></a>        <span class="st">&quot;results/logs/bwa_mem_{sample}.log&quot;</span></span>
+<span id="cb39-9"><a href="advanced-decorating-the-example-workflow.html#cb39-9"></a>    <span class="ex">params</span>:</span>
+<span id="cb39-10"><a href="advanced-decorating-the-example-workflow.html#cb39-10"></a>        <span class="va">rg=</span>r<span class="st">&quot;@RG\tID:{sample}\tSM:{sample}&quot;</span></span>
+<span id="cb39-11"><a href="advanced-decorating-the-example-workflow.html#cb39-11"></a>    <span class="ex">threads</span>: 3</span>
+<span id="cb39-12"><a href="advanced-decorating-the-example-workflow.html#cb39-12"></a>    <span class="ex">singularity</span>:</span>
+<span id="cb39-13"><a href="advanced-decorating-the-example-workflow.html#cb39-13"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest&quot;</span></span>
+<span id="cb39-14"><a href="advanced-decorating-the-example-workflow.html#cb39-14"></a>    <span class="ex">shell</span>:</span>
+<span id="cb39-15"><a href="advanced-decorating-the-example-workflow.html#cb39-15"></a>        <span class="st">&quot;bwa mem -R &#39;{params.rg}&#39; -t {threads} {input} &gt; {output} 2&gt; {log}&quot;</span></span></code></pre></div>
 <p>This results in the deletion of the BAM file once the corresponding <code>samtools_sort</code> job has been executed.
 Since the creation of BAM files via read mapping and sorting is computationally expensive, it is reasonable to protect the final BAM file from accidental deletion or modification.
 We modify the rule <code>samtools_sort</code> to mark its output file as <code>protected</code>:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="advanced-decorating-the-example-workflow.html#cb40-1"></a><span class="ex">rule</span> samtools_sort:</span>
+<span id="cb40-2"><a href="advanced-decorating-the-example-workflow.html#cb40-2"></a>    <span class="ex">input</span>:</span>
+<span id="cb40-3"><a href="advanced-decorating-the-example-workflow.html#cb40-3"></a>        <span class="st">&quot;results/mapped_reads/{sample}.sam&quot;</span></span>
+<span id="cb40-4"><a href="advanced-decorating-the-example-workflow.html#cb40-4"></a>    <span class="ex">output</span>:</span>
+<span id="cb40-5"><a href="advanced-decorating-the-example-workflow.html#cb40-5"></a>        <span class="ex">protected</span>(<span class="st">&quot;results/sorted_reads/{sample}.bam&quot;</span>)</span>
+<span id="cb40-6"><a href="advanced-decorating-the-example-workflow.html#cb40-6"></a>    <span class="ex">singularity</span>: </span>
+<span id="cb40-7"><a href="advanced-decorating-the-example-workflow.html#cb40-7"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest&quot;</span></span>
+<span id="cb40-8"><a href="advanced-decorating-the-example-workflow.html#cb40-8"></a>    <span class="ex">shell</span>:</span>
+<span id="cb40-9"><a href="advanced-decorating-the-example-workflow.html#cb40-9"></a>        <span class="st">&quot;samtools view -Sb {input} | &quot;</span></span>
+<span id="cb40-10"><a href="advanced-decorating-the-example-workflow.html#cb40-10"></a>        <span class="st">&quot;samtools sort -T results/sorted_reads/{wildcards.sample} &quot;</span></span>
+<span id="cb40-11"><a href="advanced-decorating-the-example-workflow.html#cb40-11"></a>        <span class="st">&quot;-O bam &gt; {output}&quot;</span></span></code></pre></div>
 <p>After successful execution of the job, Snakemake will write-protect the output file in the filesystem, so that it can’t be overwritten or deleted by accident.</p>
 <div id="exercise-7" class="section level3 unnumbered">
 <h3>Exercise</h3>
@@ -296,7 +477,95 @@ You will see that it fails (as intended) because <em>Snakemake</em> cannot overw
 <div id="summary-1" class="section level2 unnumbered">
 <h2>Summary</h2>
 <p>For this advanced part of the tutorial, we have now created a <code>config/config.yaml</code> configuration file:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="advanced-decorating-the-example-workflow.html#cb41-1"></a><span class="ex">samples</span>:</span>
+<span id="cb41-2"><a href="advanced-decorating-the-example-workflow.html#cb41-2"></a>    <span class="ex">A</span>: data/samples/A.fastq</span>
+<span id="cb41-3"><a href="advanced-decorating-the-example-workflow.html#cb41-3"></a>    <span class="ex">B</span>: data/samples/B.fastq</span>
+<span id="cb41-4"><a href="advanced-decorating-the-example-workflow.html#cb41-4"></a></span>
+<span id="cb41-5"><a href="advanced-decorating-the-example-workflow.html#cb41-5"></a><span class="ex">prior_mutation_rate</span>: 0.001</span></code></pre></div>
 <p>With this, the final version of our workflow in the <code>Snakefile</code> looks like this:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb42-1"><a href="advanced-decorating-the-example-workflow.html#cb42-1"></a><span class="ex">configfile</span>: <span class="st">&quot;config/config.yaml&quot;</span></span>
+<span id="cb42-2"><a href="advanced-decorating-the-example-workflow.html#cb42-2"></a></span>
+<span id="cb42-3"><a href="advanced-decorating-the-example-workflow.html#cb42-3"></a><span class="ex">rule</span> all:</span>
+<span id="cb42-4"><a href="advanced-decorating-the-example-workflow.html#cb42-4"></a>    <span class="ex">input</span>:</span>
+<span id="cb42-5"><a href="advanced-decorating-the-example-workflow.html#cb42-5"></a>        <span class="st">&quot;results/plots/quals.png&quot;</span></span>
+<span id="cb42-6"><a href="advanced-decorating-the-example-workflow.html#cb42-6"></a>        </span>
+<span id="cb42-7"><a href="advanced-decorating-the-example-workflow.html#cb42-7"></a><span class="ex">def</span> get_bwa_mem_input_fastqs(wildcards)<span class="bu">:</span></span>
+<span id="cb42-8"><a href="advanced-decorating-the-example-workflow.html#cb42-8"></a>    <span class="bu">return</span> config[<span class="st">&quot;samples&quot;</span>][wildcards.sample]</span>
+<span id="cb42-9"><a href="advanced-decorating-the-example-workflow.html#cb42-9"></a></span>
+<span id="cb42-10"><a href="advanced-decorating-the-example-workflow.html#cb42-10"></a><span class="ex">rule</span> bwa_mem:</span>
+<span id="cb42-11"><a href="advanced-decorating-the-example-workflow.html#cb42-11"></a>    <span class="ex">input</span>:</span>
+<span id="cb42-12"><a href="advanced-decorating-the-example-workflow.html#cb42-12"></a>        <span class="st">&quot;data/genome.fa&quot;</span>,</span>
+<span id="cb42-13"><a href="advanced-decorating-the-example-workflow.html#cb42-13"></a>        <span class="ex">get_bwa_mem_input_fastqs</span></span>
+<span id="cb42-14"><a href="advanced-decorating-the-example-workflow.html#cb42-14"></a>    <span class="ex">output</span>:</span>
+<span id="cb42-15"><a href="advanced-decorating-the-example-workflow.html#cb42-15"></a>        <span class="ex">temp</span>(<span class="st">&quot;results/mapped_reads/{sample}.sam&quot;</span>)</span>
+<span id="cb42-16"><a href="advanced-decorating-the-example-workflow.html#cb42-16"></a>    <span class="ex">log</span>:</span>
+<span id="cb42-17"><a href="advanced-decorating-the-example-workflow.html#cb42-17"></a>        <span class="st">&quot;results/logs/bwa_mem_{sample}.log&quot;</span></span>
+<span id="cb42-18"><a href="advanced-decorating-the-example-workflow.html#cb42-18"></a>    <span class="ex">params</span>:</span>
+<span id="cb42-19"><a href="advanced-decorating-the-example-workflow.html#cb42-19"></a>        <span class="va">rg=</span>r<span class="st">&quot;@RG\tID:{sample}\tSM:{sample}&quot;</span></span>
+<span id="cb42-20"><a href="advanced-decorating-the-example-workflow.html#cb42-20"></a>    <span class="ex">threads</span>: 3</span>
+<span id="cb42-21"><a href="advanced-decorating-the-example-workflow.html#cb42-21"></a>    <span class="ex">singularity</span>:</span>
+<span id="cb42-22"><a href="advanced-decorating-the-example-workflow.html#cb42-22"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest&quot;</span></span>
+<span id="cb42-23"><a href="advanced-decorating-the-example-workflow.html#cb42-23"></a>    <span class="ex">shell</span>:</span>
+<span id="cb42-24"><a href="advanced-decorating-the-example-workflow.html#cb42-24"></a>        <span class="st">&quot;bwa mem -R &#39;{params.rg}&#39; -t {threads} {input} &gt; {output} 2&gt; {log}&quot;</span></span>
+<span id="cb42-25"><a href="advanced-decorating-the-example-workflow.html#cb42-25"></a></span>
+<span id="cb42-26"><a href="advanced-decorating-the-example-workflow.html#cb42-26"></a><span class="ex">rule</span> samtools_sort:</span>
+<span id="cb42-27"><a href="advanced-decorating-the-example-workflow.html#cb42-27"></a>    <span class="ex">input</span>:</span>
+<span id="cb42-28"><a href="advanced-decorating-the-example-workflow.html#cb42-28"></a>        <span class="st">&quot;results/mapped_reads/{sample}.sam&quot;</span></span>
+<span id="cb42-29"><a href="advanced-decorating-the-example-workflow.html#cb42-29"></a>    <span class="ex">output</span>:</span>
+<span id="cb42-30"><a href="advanced-decorating-the-example-workflow.html#cb42-30"></a>        <span class="ex">protected</span>(<span class="st">&quot;results/sorted_reads/{sample}.bam&quot;</span>)</span>
+<span id="cb42-31"><a href="advanced-decorating-the-example-workflow.html#cb42-31"></a>    <span class="ex">singularity</span>: </span>
+<span id="cb42-32"><a href="advanced-decorating-the-example-workflow.html#cb42-32"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest&quot;</span></span>
+<span id="cb42-33"><a href="advanced-decorating-the-example-workflow.html#cb42-33"></a>    <span class="ex">shell</span>:</span>
+<span id="cb42-34"><a href="advanced-decorating-the-example-workflow.html#cb42-34"></a>        <span class="st">&quot;samtools view -Sb {input} | &quot;</span></span>
+<span id="cb42-35"><a href="advanced-decorating-the-example-workflow.html#cb42-35"></a>        <span class="st">&quot;samtools sort -T results/sorted_reads/{wildcards.sample} &quot;</span></span>
+<span id="cb42-36"><a href="advanced-decorating-the-example-workflow.html#cb42-36"></a>        <span class="st">&quot;-O bam &gt; {output}&quot;</span></span>
+<span id="cb42-37"><a href="advanced-decorating-the-example-workflow.html#cb42-37"></a>        </span>
+<span id="cb42-38"><a href="advanced-decorating-the-example-workflow.html#cb42-38"></a><span class="ex">rule</span> samtools_index:</span>
+<span id="cb42-39"><a href="advanced-decorating-the-example-workflow.html#cb42-39"></a>    <span class="ex">input</span>:</span>
+<span id="cb42-40"><a href="advanced-decorating-the-example-workflow.html#cb42-40"></a>        <span class="st">&quot;results/sorted_reads/{sample}.bam&quot;</span></span>
+<span id="cb42-41"><a href="advanced-decorating-the-example-workflow.html#cb42-41"></a>    <span class="ex">output</span>:</span>
+<span id="cb42-42"><a href="advanced-decorating-the-example-workflow.html#cb42-42"></a>        <span class="st">&quot;results/sorted_reads/{sample}.bam.bai&quot;</span></span>
+<span id="cb42-43"><a href="advanced-decorating-the-example-workflow.html#cb42-43"></a>    <span class="ex">singularity</span>: </span>
+<span id="cb42-44"><a href="advanced-decorating-the-example-workflow.html#cb42-44"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest&quot;</span></span>
+<span id="cb42-45"><a href="advanced-decorating-the-example-workflow.html#cb42-45"></a>    <span class="ex">shell</span>:</span>
+<span id="cb42-46"><a href="advanced-decorating-the-example-workflow.html#cb42-46"></a>        <span class="st">&quot;samtools index {input}&quot;</span></span>
+<span id="cb42-47"><a href="advanced-decorating-the-example-workflow.html#cb42-47"></a>        </span>
+<span id="cb42-48"><a href="advanced-decorating-the-example-workflow.html#cb42-48"></a><span class="ex">rule</span> samtools_mpileup:</span>
+<span id="cb42-49"><a href="advanced-decorating-the-example-workflow.html#cb42-49"></a>    <span class="ex">input</span>:</span>
+<span id="cb42-50"><a href="advanced-decorating-the-example-workflow.html#cb42-50"></a>        <span class="va">fa=</span><span class="st">&quot;data/genome.fa&quot;</span>,</span>
+<span id="cb42-51"><a href="advanced-decorating-the-example-workflow.html#cb42-51"></a>        <span class="va">bam=</span>expand<span class="va">(</span><span class="st">&quot;results/sorted_reads/{sample}.bam&quot;</span>, sample<span class="va">=</span>config<span class="va">[</span><span class="st">&quot;samples&quot;</span><span class="va">])</span>,</span>
+<span id="cb42-52"><a href="advanced-decorating-the-example-workflow.html#cb42-52"></a>        <span class="va">bai=</span>expand<span class="va">(</span><span class="st">&quot;results/sorted_reads/{sample}.bam.bai&quot;</span>, sample<span class="va">=</span>config<span class="va">[</span><span class="st">&quot;samples&quot;</span><span class="va">])</span></span>
+<span id="cb42-53"><a href="advanced-decorating-the-example-workflow.html#cb42-53"></a>    <span class="ex">output</span>:</span>
+<span id="cb42-54"><a href="advanced-decorating-the-example-workflow.html#cb42-54"></a>        <span class="st">&quot;results/calls/all.pileup&quot;</span></span>
+<span id="cb42-55"><a href="advanced-decorating-the-example-workflow.html#cb42-55"></a>    <span class="ex">singularity</span>: </span>
+<span id="cb42-56"><a href="advanced-decorating-the-example-workflow.html#cb42-56"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest&quot;</span></span>
+<span id="cb42-57"><a href="advanced-decorating-the-example-workflow.html#cb42-57"></a>    <span class="ex">shell</span>:</span>
+<span id="cb42-58"><a href="advanced-decorating-the-example-workflow.html#cb42-58"></a>        <span class="st">&quot;samtools mpileup -g -f {input.fa} {input.bam} &gt; {output}&quot;</span></span>
+<span id="cb42-59"><a href="advanced-decorating-the-example-workflow.html#cb42-59"></a>        </span>
+<span id="cb42-60"><a href="advanced-decorating-the-example-workflow.html#cb42-60"></a><span class="ex">rule</span> bcftools_call:</span>
+<span id="cb42-61"><a href="advanced-decorating-the-example-workflow.html#cb42-61"></a>    <span class="ex">input</span>:</span>
+<span id="cb42-62"><a href="advanced-decorating-the-example-workflow.html#cb42-62"></a>        <span class="st">&quot;results/calls/all.pileup&quot;</span></span>
+<span id="cb42-63"><a href="advanced-decorating-the-example-workflow.html#cb42-63"></a>    <span class="ex">output</span>:</span>
+<span id="cb42-64"><a href="advanced-decorating-the-example-workflow.html#cb42-64"></a>        <span class="st">&quot;results/calls/all.vcf&quot;</span></span>
+<span id="cb42-65"><a href="advanced-decorating-the-example-workflow.html#cb42-65"></a>    <span class="ex">params</span>:</span>
+<span id="cb42-66"><a href="advanced-decorating-the-example-workflow.html#cb42-66"></a>        <span class="va">rate=</span>config[<span class="st">&quot;prior_mutation_rate&quot;</span>]</span>
+<span id="cb42-67"><a href="advanced-decorating-the-example-workflow.html#cb42-67"></a>    <span class="ex">log</span>:</span>
+<span id="cb42-68"><a href="advanced-decorating-the-example-workflow.html#cb42-68"></a>        <span class="st">&quot;results/logs/bcftools_call.log&quot;</span></span>
+<span id="cb42-69"><a href="advanced-decorating-the-example-workflow.html#cb42-69"></a>    <span class="ex">singularity</span>: </span>
+<span id="cb42-70"><a href="advanced-decorating-the-example-workflow.html#cb42-70"></a>        <span class="st">&quot;oras://registry.forgemia.inra.fr/gafl/singularity/bcftools/bcftools:latest&quot;</span></span>
+<span id="cb42-71"><a href="advanced-decorating-the-example-workflow.html#cb42-71"></a>    <span class="ex">shell</span>:</span>
+<span id="cb42-72"><a href="advanced-decorating-the-example-workflow.html#cb42-72"></a>        <span class="st">&quot;bcftools call -mv -P {params.rate} {input} &gt; {output} 2&gt; {log}&quot;</span></span>
+<span id="cb42-73"><a href="advanced-decorating-the-example-workflow.html#cb42-73"></a>        </span>
+<span id="cb42-74"><a href="advanced-decorating-the-example-workflow.html#cb42-74"></a><span class="ex">rule</span> plot_quals:</span>
+<span id="cb42-75"><a href="advanced-decorating-the-example-workflow.html#cb42-75"></a>    <span class="ex">input</span>:</span>
+<span id="cb42-76"><a href="advanced-decorating-the-example-workflow.html#cb42-76"></a>        <span class="st">&quot;results/calls/all.vcf&quot;</span></span>
+<span id="cb42-77"><a href="advanced-decorating-the-example-workflow.html#cb42-77"></a>    <span class="ex">output</span>:</span>
+<span id="cb42-78"><a href="advanced-decorating-the-example-workflow.html#cb42-78"></a>        <span class="st">&quot;results/plots/quals.png&quot;</span></span>
+<span id="cb42-79"><a href="advanced-decorating-the-example-workflow.html#cb42-79"></a>    <span class="ex">singularity</span>: </span>
+<span id="cb42-80"><a href="advanced-decorating-the-example-workflow.html#cb42-80"></a>        <span class="st">&quot;https://github.com/sylvainschmitt/singularity-r-bioinfo/releases/download/0.0.3/sylvainschmitt-singularity-r-bioinfo.latest.sif&quot;</span></span>
+<span id="cb42-81"><a href="advanced-decorating-the-example-workflow.html#cb42-81"></a>    <span class="ex">script</span>:</span>
+<span id="cb42-82"><a href="advanced-decorating-the-example-workflow.html#cb42-82"></a>        <span class="st">&quot;scripts/plot-quals.R&quot;</span></span>
+<span id="cb42-83"><a href="advanced-decorating-the-example-workflow.html#cb42-83"></a>        </span></code></pre></div>
 
 </div>
 </div>
