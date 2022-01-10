@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Additional features | Snakemake &amp; Singulariyt lecture</title>
+  <meta name="description" content="Singularity &amp; Snakemake workflow lecture at ECOFOG." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Additional features | Snakemake &amp; Singulariyt lecture" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Singularity &amp; Snakemake workflow lecture at ECOFOG." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Additional features | Snakemake &amp; Singulariyt lecture" />
+  
+  <meta name="twitter:description" content="Singularity &amp; Snakemake workflow lecture at ECOFOG." />
+  
+
+<meta name="author" content="Sylvain Schmitt" />
+
+
+<meta name="date" content="2022-01-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="advanced-decorating-the-example-workflow.html"/>
+<link rel="next" href="singularity.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script async defer src="https://hypothes.is/embed.js"></script>
+
+
+
+<link rel="stylesheet" href="html/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">snakemakeLecture</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html"><i class="fa fa-check"></i><b>1</b> Basics: An example workflow</a><ul>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="1.1" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#mapping-reads"><i class="fa fa-check"></i><b>1.1</b> Mapping reads</a></li>
+<li class="chapter" data-level="1.2" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#generalizing-the-read-mapping-rule"><i class="fa fa-check"></i><b>1.2</b> Generalizing the read mapping rule</a></li>
+<li class="chapter" data-level="1.3" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#compressing-and-sorting-read-alignments"><i class="fa fa-check"></i><b>1.3</b> Compressing and sorting read alignments</a></li>
+<li class="chapter" data-level="1.4" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#indexing-read-alignments-and-visualizing-the-dag-of-jobs"><i class="fa fa-check"></i><b>1.4</b> Indexing read alignments and visualizing the DAG of jobs</a><ul>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#exercise"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#calling-genomic-variants"><i class="fa fa-check"></i><b>1.5</b> Calling genomic variants</a><ul>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#using-custom-scripts"><i class="fa fa-check"></i><b>1.6</b> Using custom scripts</a></li>
+<li class="chapter" data-level="1.7" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#adding-a-target-rule"><i class="fa fa-check"></i><b>1.7</b> Adding a target rule</a><ul>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#exercise-2"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#summary"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html"><i class="fa fa-check"></i><b>2</b> Advanced: Decorating the example workflow</a><ul>
+<li class="chapter" data-level="2.1" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#specifying-the-number-of-used-threads"><i class="fa fa-check"></i><b>2.1</b> Specifying the number of used threads</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-3"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#config-files"><i class="fa fa-check"></i><b>2.2</b> Config files</a></li>
+<li class="chapter" data-level="2.3" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#input-functions-others"><i class="fa fa-check"></i><b>2.3</b> Input functions &amp; others</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-4"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#other-inputs"><i class="fa fa-check"></i>Other inputs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#rule-parameters"><i class="fa fa-check"></i><b>2.4</b> Rule parameters</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-5"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#logging"><i class="fa fa-check"></i><b>2.5</b> Logging</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-6"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#temporary-and-protected-files"><i class="fa fa-check"></i><b>2.6</b> Temporary and protected files</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-7"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#summary-1"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="additional-features.html"><a href="additional-features.html"><i class="fa fa-check"></i><b>3</b> Additional features</a><ul>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#automatic-reports"><i class="fa fa-check"></i>Automatic reports</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#benchmarking"><i class="fa fa-check"></i>Benchmarking</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#modularization"><i class="fa fa-check"></i>Modularization</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#exercise-8"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#automatic-deployment-of-software-dependencies"><i class="fa fa-check"></i>Automatic deployment of software dependencies</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#tool-wrappers"><i class="fa fa-check"></i>Tool wrappers</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#cluster-execution"><i class="fa fa-check"></i>Cluster execution</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#constraining-wildcards"><i class="fa fa-check"></i>Constraining wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="singularity.html"><a href="singularity.html"><i class="fa fa-check"></i><b>4</b> Singularity</a><ul>
+<li class="chapter" data-level="4.1" data-path="singularity.html"><a href="singularity.html#part"><i class="fa fa-check"></i><b>4.1</b> Part</a></li>
+<li class="chapter" data-level="" data-path="singularity.html"><a href="singularity.html#summary-2"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/sylvainschmitt/snakemakeLecture" target="blank">Source</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Snakemake &amp; Singulariyt lecture</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div class = rmdreview>
+This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
+</div>
+<div id="additional-features" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Additional features</h1>
+<div id="automatic-reports" class="section level2 unnumbered">
+<h2>Automatic reports</h2>
+<p><em>Snakemake</em> can automatically create HTML reports with</p>
+<p>Such a report contains runtime statistics, a visualization of the workflow topology, used software and data provenance information.</p>
+<p>In addition, you can mark any output file generated in your workflow for inclusion into the report.
+It will be encoded directly into the report, such that it can be, e.g., emailed as a self-contained document.
+The reader (e.g., a collaborator of yours) can at any time download the enclosed results from the report for further use, e.g., in a manuscript you write together.
+In this example, please mark the output file <code>"results/plots/quals.png"</code> for inclusion by replacing it with <code>report("results/plots/quals.png", caption="report/calling.rst", category="Variants")</code> and adding a file <code>report/calling.rst</code>, containing some description of the output file.
+This description will be presented as caption in the resulting report.</p>
+</div>
+<div id="benchmarking" class="section level2 unnumbered">
+<h2>Benchmarking</h2>
+<p>With the <code>benchmark</code> directive, <em>Snakemake</em> can be instructed to measure the wall clock time of a job.
+We activate benchmarking for the rule <code>bwa_mem</code>:</p>
+<p>The <code>benchmark</code> directive takes a string that points to the file where benchmarking results shall be stored.
+Similar to output files, the path can contain wildcards (it must be the same wildcards as in the output files).
+When a job derived from the rule is executed, Snakemake will measure the wall clock time and memory usage (in MiB) and store it in the file in tab-delimited format.
+It is possible to repeat a benchmark multiple times in order to get a sense for the variability of the measurements.
+This can be done by annotating the benchmark file, e.g., with <code>repeat("benchmarks/{sample}.bwa.benchmark.txt", 3)</code> <em>Snakemake</em> can be told to run the job three times.
+The repeated measurements occur as subsequent lines in the tab-delimited benchmark file.</p>
+</div>
+<div id="modularization" class="section level2 unnumbered">
+<h2>Modularization</h2>
+<p>In order to re-use building blocks or simply to structure large workflows, it is sometimes reasonable to split a workflow into modules.
+For this, <em>Snakemake</em> provides the <code>include</code> directive to include another Snakefile into the current one, e.g.:</p>
+<p>Alternatively, <em>Snakemake</em> allows to define sub-workflows.
+A sub-workflow refers to a working directory with a complete <em>Snakemake</em> workflow.
+Output files of that sub-workflow can be used in the current Snakefile.
+When executing, <em>Snakemake</em> ensures that the output files of the sub-workflow are up-to-date before executing the current workflow.
+This mechanism is particularly useful when you want to extend a previous analysis without modifying it.
+For details about sub-workflows, see the documentation.</p>
+</div>
+<div id="exercise-8" class="section level2 unnumbered">
+<h2>Exercise</h2>
+<p>Put the read mapping related rules into a separate Snakefile and use the <code>include</code> directive to make them available in our example workflow again.</p>
+</div>
+<div id="automatic-deployment-of-software-dependencies" class="section level2 unnumbered">
+<h2>Automatic deployment of software dependencies</h2>
+<p>In order to get a fully reproducible data analysis, it is not sufficient to be able to execute each step and document all used parameters.
+The used software tools and libraries have to be documented as well.
+<em>Conda</em> can be used to specify an isolated software environment for a whole workflow.
+With <em>Snakemake</em>, you can go one step further and specify <em>Conda</em> environments per rule.
+This way, you can even make use of conflicting software versions (e.g. combine Python 2 with Python 3).</p>
+<p>In our example, instead of using an external environment we can specify environments per rule, e.g.:</p>
+<p>with <code>envs/samtools.yaml</code> defined as</p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> The conda directive does not work in combination with <code>run</code> blocks, because they have to share their Python environment with the surrounding snakefile.</p>
+</blockquote>
+<p>When Snakemake is executed with</p>
+<p>It will automatically create required environments and activate them before a job is executed.
+It is best practice to specify at least the major and minor version of any packages in the environment definition.
+Specifying environments per rule in this way has two advantages.
+First, the workflow definition also documents all used software versions.
+Second, a workflow can be re-executed (without admin rights) on a vanilla system, without installing any prerequisites apart from <em>Snakemake</em> and <em>Miniconda.</em></p>
+</div>
+<div id="tool-wrappers" class="section level2 unnumbered">
+<h2>Tool wrappers</h2>
+<p>In order to simplify the utilization of popular tools, <em>Snakemake</em> provides a repository of so-called wrappers (the <em>Snakemake</em> wrapper repository).
+A wrapper is a short script that wraps (typically) a command line application and makes it directly addressable from within <em>Snakemake</em>.
+For this, <em>Snakemake</em> provides the <code>wrapper</code> directive that can be used instead of <code>shell</code>, <code>script</code>, or <code>run</code>.
+For example, the rule <code>bwa_mem</code> could alternatively look like this:</p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> Updates to the <em>Snakemake</em> wrapper repository are automatically tested via continuous integration.</p>
+</blockquote>
+<p>The wrapper directive expects a (partial) URL that points to a wrapper in the repository.
+These can be looked up in the corresponding database.
+The first part of the URL is a Git version tag.
+Upon invocation, <em>Snakemake</em> will automatically download the requested version of the wrapper.
+Furthermore, in combination with <code>--use-conda</code>, the required software will be automatically deployed before execution.</p>
+</div>
+<div id="cluster-execution" class="section level2 unnumbered">
+<h2>Cluster execution</h2>
+<p>By default, <em>Snakemake</em> executes jobs on the local machine it is invoked on.
+Alternatively, it can execute jobs in distributed environments, e.g., compute clusters or batch systems.
+If the nodes share a common file system, / supports three alternative execution modes.</p>
+<p>In cluster environments, compute jobs are usually submitted as shell scripts via commands like <code>sbatch</code>.
+<em>Snakemake</em> provides a generic mode to execute on such clusters.
+By invoking <em>Snakemake</em> with</p>
+<p>Each job will be compiled into a shell script that is submitted with the given command (here <code>sbatch</code>).
+The <code>--jobs</code> flag limits the number of concurrently submitted jobs to 100.
+This basic mode assumes that the submission command returns immediately after submitting the job.
+Some clusters allow to run the submission command in synchronous mode, such that it waits until the job has been executed.
+In such cases, we can invoke e.g.</p>
+<p>The specified submission command can also be decorated with additional parameters taken from the submitted job.
+For example, the number of used threads can be accessed in braces similarly to the formatting of shell commands, e.g.</p>
+<p>To support additional cluster specific parametrization, a Snakefile can be complemented by a Cluster Configuration file, see for instance <a href="snakemake/config/ressources.genologin.yaml"><code>config/ressources.genologin.yaml</code></a> that you may declare in the <code>config/config.yaml</code> file as:</p>
+<p>Finally, the submission fo the workflow can be defined in a separate bash file, see for instance <a href="snakemake/job.sh"><code>job.sh</code></a> that you can submit as:</p>
+</div>
+<div id="constraining-wildcards" class="section level2 unnumbered">
+<h2>Constraining wildcards</h2>
+<p><em>Snakemake</em> uses regular expressions to match output files to input files and determine dependencies between the jobs.
+Sometimes it is useful to constrain the values a wildcard can have.
+This can be achieved by adding a regular expression that describes the set of allowed wildcard values.
+For example, the wildcard <code>sample</code> in the output file <code>"results/sorted_reads/{sample}.bam"</code> can be constrained to only allow alphanumeric sample names as <code>"results/sorted_reads/{sample,[A-Za-z0-9]+}.bam"</code>.
+Constraints may be defined per rule or globally using the <code>wildcard_constraints</code> keyword.
+This mechanism helps to solve two kinds of ambiguity.</p>
+<p>It can help to avoid ambiguous rules, i.e. two or more rules that can be applied to generate the same output file.
+Other ways of handling ambiguous rules are described in the Section Handling Ambiguous Rules.</p>
+<p>It can help to guide the regular expression based matching so that wildcards are assigned to the right parts of a file name.
+Consider the output file <code>{sample}.{group}.txt</code> and assume that the target file is <code>A.1.normal.txt</code>.
+It is not clear whether <code>dataset="A.1"</code> and <code>group="normal"</code> or <code>dataset="A"</code> and <code>group="1.normal"</code> is the right assignment.
+Here, constraining the dataset wildcard by <code>{sample,[A-Z]+}.{group}</code> solves the problem.</p>
+<p>When dealing with ambiguous rules, it is best practice to first try to solve the ambiguity by using a proper file structure, for example, by separating the output files of different steps in different directories.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="advanced-decorating-the-example-workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="singularity.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

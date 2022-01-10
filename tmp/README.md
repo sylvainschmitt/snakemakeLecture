@@ -1,1 +1,0 @@
-temporary files for gatk MarkDuplicate
