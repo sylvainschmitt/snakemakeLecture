@@ -1,0 +1,83 @@
+configfile: "config/config.yaml"
+
+rule all:
+    input:
+        "results/plots/quals.png"
+        
+def get_bwa_mem_input_fastqs(wildcards):
+    return config["samples"][wildcards.sample]
+
+rule bwa_mem:
+    input:
+        "data/genome.fa",
+        get_bwa_mem_input_fastqs
+    output:
+        temp("results/mapped_reads/{sample}.sam")
+    log:
+        "results/logs/bwa_mem_{sample}.log"
+    params:
+        rg=r"@RG\tID:{sample}\tSM:{sample}"
+    threads: 3
+    singularity:
+        "oras://registry.forgemia.inra.fr/gafl/singularity/bwa/bwa:latest"
+    shell:
+        "bwa mem -R '{params.rg}' -t {threads} {input} > {output} 2> {log}"
+
+rule samtools_sort:
+    input:
+        "results/mapped_reads/{sample}.sam"
+    output:
+        protected("results/sorted_reads/{sample}.bam")
+    singularity: 
+        "oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest"
+    shell:
+        "samtools view -Sb {input} | "
+        "samtools sort -T results/sorted_reads/{wildcards.sample} "
+        "-O bam > {output}"
+        
+rule samtools_index:
+    input:
+        "results/sorted_reads/{sample}.bam"
+    output:
+        "results/sorted_reads/{sample}.bam.bai"
+    singularity: 
+        "oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest"
+    shell:
+        "samtools index {input}"
+        
+rule samtools_mpileup:
+    input:
+        fa="data/genome.fa",
+        bam=expand("results/sorted_reads/{sample}.bam", sample=config["samples"]),
+        bai=expand("results/sorted_reads/{sample}.bam.bai", sample=config["samples"])
+    output:
+        "results/calls/all.pileup"
+    singularity: 
+        "oras://registry.forgemia.inra.fr/gafl/singularity/samtools/samtools:latest"
+    shell:
+        "samtools mpileup -g -f {input.fa} {input.bam} > {output}"
+        
+rule bcftools_call:
+    input:
+        "results/calls/all.pileup"
+    output:
+        "results/calls/all.vcf"
+    params:
+        rate=config["prior_mutation_rate"]
+    log:
+        "results/logs/bcftools_call.log"
+    singularity: 
+        "oras://registry.forgemia.inra.fr/gafl/singularity/bcftools/bcftools:latest"
+    shell:
+        "bcftools call -mv -P {params.rate} {input} > {output} 2> {log}"
+        
+rule plot_quals:
+    input:
+        "results/calls/all.vcf"
+    output:
+        report("results/plots/quals.png", caption="report/calling.rst", category="Variants")
+    singularity: 
+        "https://github.com/sylvainschmitt/singularity-r-bioinfo/releases/download/0.0.3/sylvainschmitt-singularity-r-bioinfo.latest.sif"
+    script:
+        "scripts/plot-quals.R"
+        

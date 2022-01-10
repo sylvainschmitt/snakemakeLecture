@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Introduction | Snakemake &amp; Singulariyt lecture</title>
+  <meta name="description" content="Singularity &amp; Snakemake workflow lecture at ECOFOG." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Introduction | Snakemake &amp; Singulariyt lecture" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Singularity &amp; Snakemake workflow lecture at ECOFOG." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction | Snakemake &amp; Singulariyt lecture" />
+  
+  <meta name="twitter:description" content="Singularity &amp; Snakemake workflow lecture at ECOFOG." />
+  
+
+<meta name="author" content="Sylvain Schmitt" />
+
+
+<meta name="date" content="2022-01-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="basics-an-example-workflow.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script async defer src="https://hypothes.is/embed.js"></script>
+
+
+
+<link rel="stylesheet" href="html/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">snakemakeLecture</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html"><i class="fa fa-check"></i><b>1</b> Basics: An example workflow</a><ul>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#background"><i class="fa fa-check"></i>Background</a></li>
+<li class="chapter" data-level="1.1" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#mapping-reads"><i class="fa fa-check"></i><b>1.1</b> Mapping reads</a></li>
+<li class="chapter" data-level="1.2" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#generalizing-the-read-mapping-rule"><i class="fa fa-check"></i><b>1.2</b> Generalizing the read mapping rule</a></li>
+<li class="chapter" data-level="1.3" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#compressing-and-sorting-read-alignments"><i class="fa fa-check"></i><b>1.3</b> Compressing and sorting read alignments</a></li>
+<li class="chapter" data-level="1.4" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#indexing-read-alignments-and-visualizing-the-dag-of-jobs"><i class="fa fa-check"></i><b>1.4</b> Indexing read alignments and visualizing the DAG of jobs</a><ul>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#exercise"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#calling-genomic-variants"><i class="fa fa-check"></i><b>1.5</b> Calling genomic variants</a><ul>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#using-custom-scripts"><i class="fa fa-check"></i><b>1.6</b> Using custom scripts</a></li>
+<li class="chapter" data-level="1.7" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#adding-a-target-rule"><i class="fa fa-check"></i><b>1.7</b> Adding a target rule</a><ul>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#exercise-2"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="basics-an-example-workflow.html"><a href="basics-an-example-workflow.html#summary"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html"><i class="fa fa-check"></i><b>2</b> Advanced: Decorating the example workflow</a><ul>
+<li class="chapter" data-level="2.1" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#specifying-the-number-of-used-threads"><i class="fa fa-check"></i><b>2.1</b> Specifying the number of used threads</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-3"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#config-files"><i class="fa fa-check"></i><b>2.2</b> Config files</a></li>
+<li class="chapter" data-level="2.3" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#input-functions-others"><i class="fa fa-check"></i><b>2.3</b> Input functions &amp; others</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-4"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#other-inputs"><i class="fa fa-check"></i>Other inputs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#rule-parameters"><i class="fa fa-check"></i><b>2.4</b> Rule parameters</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-5"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#logging"><i class="fa fa-check"></i><b>2.5</b> Logging</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-6"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#temporary-and-protected-files"><i class="fa fa-check"></i><b>2.6</b> Temporary and protected files</a><ul>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#exercise-7"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="advanced-decorating-the-example-workflow.html"><a href="advanced-decorating-the-example-workflow.html#summary-1"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="additional-features.html"><a href="additional-features.html"><i class="fa fa-check"></i><b>3</b> Additional features</a><ul>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#automatic-reports"><i class="fa fa-check"></i>Automatic reports</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#benchmarking"><i class="fa fa-check"></i>Benchmarking</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#modularization"><i class="fa fa-check"></i>Modularization</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#exercise-8"><i class="fa fa-check"></i>Exercise</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#automatic-deployment-of-software-dependencies"><i class="fa fa-check"></i>Automatic deployment of software dependencies</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#tool-wrappers"><i class="fa fa-check"></i>Tool wrappers</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#cluster-execution"><i class="fa fa-check"></i>Cluster execution</a></li>
+<li class="chapter" data-level="" data-path="additional-features.html"><a href="additional-features.html#constraining-wildcards"><i class="fa fa-check"></i>Constraining wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="singularity.html"><a href="singularity.html"><i class="fa fa-check"></i><b>4</b> Singularity</a><ul>
+<li class="chapter" data-level="4.1" data-path="singularity.html"><a href="singularity.html#part"><i class="fa fa-check"></i><b>4.1</b> Part</a></li>
+<li class="chapter" data-level="" data-path="singularity.html"><a href="singularity.html#summary-2"><i class="fa fa-check"></i>Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/sylvainschmitt/snakemakeLecture" target="blank">Source</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Snakemake &amp; Singulariyt lecture</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div class = rmdreview>
+This book is in <b><a href="open.html#open">Open Review</a></b>. I want your feedback to make the book better for you and other readers. To add your annotation, <span style="background-color: #3297FD; color: white">select some text</span> and then click the <i class="h-icon-annotate"></i> on the pop-up menu. To see the annotations of others, click the <i class="h-icon-chevron-left"></i> in the upper right hand corner of the page <i class="fa fa-arrow-circle-right  fa-rotate-315" aria-hidden="true"></i>
+</div>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>This tutorial introduces the text-based workflow system <em>Snakemake</em>.
+<em>Snakemake</em> follows the GNU Make paradigm: workflows are defined in terms of rules that define how to create output files from input files.
+Dependencies between the rules are determined automatically, creating a DAG (directed acyclic graph) of jobs that can be automatically parallelized.</p>
+<p><em>Snakemake</em> sets itself apart from other text-based workflow systems in the following way.
+Hooking into the <em>Python</em> interpreter, <em>Snakemake</em> offers a definition language that is an extension of Python with syntax to define rules and workflow specific properties.
+This allows to combine the flexibility of a plain scripting language with a pythonic workflow definition.
+The <em>Python</em> language is known to be concise yet readable and can appear almost like pseudo-code.
+The syntactic extensions provided by <em>Snakemake</em> maintain this property for the definition of the workflow. F
+urther, <em>Snakemake</em>’s scheduling algorithm can be constrained by priorities, provided cores and customizable resources and it provides a generic support for distributed computing (e.g., cluster or batch systems).
+Hence, a <em>Snakemake</em> workflow scales without modification from single core workstations and multi-core servers to cluster or batch systems.
+Finally, <em>Snakemake</em> integrates with the package manager <em>Conda</em> and the container engine <em>Singularity</em> such that defining the software stack becomes part of the workflow itself.</p>
+<p>The examples presented in this tutorial come from Bioinformatics.
+However, <em>Snakemake</em> is a general-purpose workflow management system for any discipline.
+We ensured that no bioinformatics knowledge is needed to understand the tutorial.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="basics-an-example-workflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
