@@ -1,3 +1,18 @@
-image:
-  file: Dockerfile
-  
+image: snakemake/snakemake-tutorial:stable
+
+tasks:
+  - name: main terminal
+    command: |
+      rm Dockerfile
+      echo -e "# Snakemake-Tutorial\n\nYour gitpod workspace for the snakemake-tutorial has been initialized. Now you can start with the [basic tutorial](https://sylvainschmitt.github.io/snakemakeLecture/basics-an-example-workflow.html)." > README.md
+      echo "PS1='\w\$ '" >> ~/.bashrc
+      source ~/.bashrc
+      echo "*" > .gitignore
+      conda activate snakemake-tutorial
+      clear
+vscode:
+  extensions:
+    - snakemake.snakemake-lang
+    - ms-toolsai.jupyter
+    - sndst00m.vscode-native-svg-preview
+    
