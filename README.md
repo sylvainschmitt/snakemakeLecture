@@ -1,4 +1,4 @@
-Snakemake & Singularity lecture
+Snakemake & Singularity lecture [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/sylvainschmitt/snakemakeLecture/tree/gitpod)
 ================
 Sylvain Schmitt
 January 4th, 2022
@@ -9,5 +9,3 @@ The lecture instructions are given in the [online manual](https://sylvainschmitt
 Have a nice reading,
 
 *Sylvain*
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/sylvainschmitt/snakemakeLecture/tree/gitpod)
